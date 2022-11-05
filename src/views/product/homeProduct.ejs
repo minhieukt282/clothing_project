@@ -1,0 +1,175 @@
+<div class="main">
+    <div class="container">
+        <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+        <div class="row margin-bottom-40">
+            <!-- BEGIN SALE PRODUCT -->
+            <div class="col-md-12 sale-product">
+                <h2>New Arrivals</h2>
+                <div class="owl-carousel owl-carousel5">
+                    <% for( item of newProduct){ %>
+                        <div>
+                            <div class="product-item">
+                                <div class="pi-img-wrapper">
+                                    <img src="<%= item.image %>" class="img-responsive"
+                                         alt="">
+                                    <div>
+                                        <a href="<%= item.image %>"
+                                           class="btn btn-default fancybox-button">Zoom</a>
+                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    </div>
+                                </div>
+                                <h3><a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a></h3>
+                                <div class="pi-price"><%= item.price %></div>
+                                <a href="" class="btn btn-default add2cart">Add to cart</a>
+                                <div class="sticker sticker-new"></div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <!-- END SALE PRODUCT -->
+        </div>
+        <!-- END SALE PRODUCT & NEW ARRIVALS -->
+
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40 ">
+            <!-- BEGIN SIDEBAR -->
+            <div class="sidebar col-md-3 col-sm-4">
+                <ul class="list-group margin-bottom-25 sidebar-menu">
+                    <li class="list-group-item clearfix dropdown">
+                        <a href="">
+                            <i class="fa fa-angle-right" href=""></i>
+                            Woman
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="list-group-item dropdown clearfix">
+                                <a href=""><i class="fa fa-angle-right"></i> Style </a>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/woman/style/normal"><i class="fa fa-angle-right"></i> Normal
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/woman/style/sport"><i class="fa fa-angle-right"></i> Sport
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item dropdown clearfix">
+                                <a href=""><i class="fa fa-angle-right"></i> Branch </a>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/woman/branch/china"><i class="fa fa-angle-right"></i> China
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/woman/branch/japan"><i class="fa fa-angle-right"></i> Japan
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item clearfix dropdown">
+                        <a href="">
+                            <i class="fa fa-angle-right" href=""></i>
+                            Men
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="list-group-item dropdown clearfix">
+                                <a href=""><i class="fa fa-angle-right"></i> Style </a>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/men/style/normal"><i class="fa fa-angle-right"></i> Normal
+                                        </a>
+                                    </li>
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/men/style/sport"><i class="fa fa-angle-right"></i> Sport </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item dropdown clearfix">
+                                <a href=""><i class="fa fa-angle-right"></i> Branch </a>
+                                <ul class="dropdown-menu">
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/men/branch/china"><i class="fa fa-angle-right"></i> China </a>
+                                    </li>
+                                    <li class="list-group-item dropdown clearfix">
+                                        <a href="/product/men/branch/japan"><i class="fa fa-angle-right"></i> Japan </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item clearfix dropdown">
+                        <a href="">
+                            <i class="fa fa-angle-right" href=""></i>
+                            Style
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="list-group-item dropdown clearfix">
+                                <a href="/product/style/normal"><i class="fa fa-angle-right"></i> Normal </a>
+                            </li>
+                            <li class="list-group-item dropdown clearfix">
+                                <a href="/product/style/sport"><i class="fa fa-angle-right"></i> Sport </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item clearfix dropdown">
+                        <a href="">
+                            <i class="fa fa-angle-right" href=""></i>
+                            Branch
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="list-group-item dropdown clearfix">
+                                <a href="/product/branch/china"><i class="fa fa-angle-right"></i> China </a>
+                            </li>
+                            <li class="list-group-item dropdown clearfix">
+                                <a href="/product/branch/japan"><i class="fa fa-angle-right"></i> Japan </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="sidebar-products clearfix">
+                    <h2>Best sellers</h2>
+                    <% for( item of bestProduct){ %>
+                        <div class="item">
+                            <a href="/product/details/<%= item.product_id %>"><img src="<%= item.image %>" alt=""></a>
+                            <h3><a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a></h3>
+                            <div class="price">$<%= item.price %></div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+
+            <!-- BEGIN CONTENT -->
+            <a href="/product"><h2>Popular</h2></a>
+            <div class="col-md-9 col-sm-8">
+                <div class="owl-carousel owl-carousel3">
+                    <% for( item of products){ %>
+                        <div>
+                            <div class="product-item">
+                                <div class="pi-img-wrapper">
+                                    <img src="<%= item.image %>" class="img-responsive"
+                                         alt="">
+                                    <div>
+                                        <a href="<%= item.image %>"
+                                           class="btn btn-default fancybox-button">Zoom</a>
+                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                    </div>
+                                </div>
+                                <h3><a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a></h3>
+                                <div class="pi-price">$<%= item.price %></div>
+                                <a href="" class="btn btn-default add2cart">Add to cart</a>
+                                <!--                                <div class="sticker sticker-new"></div>-->
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+    </div>
+</div>
