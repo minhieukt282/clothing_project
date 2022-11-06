@@ -1,40 +1,9 @@
 <div class="main">
     <div class="container">
-        <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
-        <div class="row margin-bottom-40">
-            <!-- BEGIN SALE PRODUCT -->
-            <div class="col-md-12 sale-product">
-                <h2>New Arrivals</h2>
-                <div class="owl-carousel owl-carousel5">
-                    <% for( item of newProduct){ %>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="<%= item.image %>" class="img-responsive"
-                                         alt="">
-                                    <div>
-                                        <a href="<%= item.image %>"
-                                           class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                                    </div>
-                                </div>
-                                <h3><a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a></h3>
-                                <div class="pi-price"><%= item.price %></div>
-                                <a href="" class="btn btn-default add2cart">Add to cart</a>
-                                <div class="sticker sticker-new"></div>
-                            </div>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-            <!-- END SALE PRODUCT -->
-        </div>
-        <!-- END SALE PRODUCT & NEW ARRIVALS -->
-
         <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40 ">
+        <div class="row margin-bottom-40">
             <!-- BEGIN SIDEBAR -->
-            <div class="sidebar col-md-3 col-sm-4">
+            <div class="sidebar col-md-3 col-sm-5">
                 <ul class="list-group margin-bottom-25 sidebar-menu">
                     <li class="list-group-item clearfix dropdown">
                         <a href="">
@@ -144,32 +113,71 @@
             <!-- END SIDEBAR -->
 
             <!-- BEGIN CONTENT -->
-            <a href="/product"><h2>Show more item</h2></a>
-            <div class="col-md-9 col-sm-8">
-                <div class="owl-carousel owl-carousel3">
-                    <% for( item of products){ %>
-                        <div>
-                            <div class="product-item">
-                                <div class="pi-img-wrapper">
-                                    <img src="<%= item.image %>" class="img-responsive"
-                                         alt="">
-                                    <div>
-                                        <a href="<%= item.image %>"
-                                           class="btn btn-default fancybox-button">Zoom</a>
-                                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+            <div class="col-md-9 col-sm-7">
+                <div class="product-page">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6"></div>
+                        <div class="col-md-6 col-sm-6"></div>
+                    </div>
+                    <div class="product-page-content">
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane fade in active" id="Reviews">
+                                <!-- BEGIN FORM-->
+                                <form action="/create" class="reviews-form" method="post" enctype="multipart/form-data">
+                                    <h2>Create New Product</h2>
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" name="product_name" required>
                                     </div>
-                                </div>
-                                <h3><a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a></h3>
-                                <div class="pi-price">$<%= item.price %></div>
-                                <a href="" class="btn btn-default add2cart">Add to cart</a>
-                                <!--                                <div class="sticker sticker-new"></div>-->
+                                    <div class="form-group">
+                                        <label for="name">Description</label>
+                                        <input type="text" class="form-control" name="description" required>
+                                    </div>
+                                    <div class="product-page-options">
+                                        <div class="pull-left">
+                                            <label class="control-label">Gender:</label>
+                                            <select class="form-control input-sm" name="gender_id">
+                                                <option value="1">Man</option>
+                                                <option value="2">Woman</option>
+                                            </select>
+                                        </div>
+                                        <div class="pull-left">
+                                            <label class="control-label">Style:</label>
+                                            <select class="form-control input-sm" name="style_id">
+                                                <option value="1">Normal</option>
+                                                <option value="2">Sport</option>
+                                            </select>
+                                        </div>
+                                        <div class="pull-left">
+                                            <label class="control-label">Branch:</label>
+                                            <select class="form-control input-sm" name="branch_id">
+                                                <option value="1">China</option>
+                                                <option value="2">Japan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Price</label>
+                                        <input type="number" class="form-control" name="price" required min="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Image</label>
+                                        <input type="file" name="image" required>
+                                    </div>
+
+                                    <div class="padding-top-20">
+                                        <button type="submit" class="btn btn-primary">Create</button>
+                                    </div>
+                                </form>
+                                <!-- END FORM-->
                             </div>
                         </div>
-                    <% } %>
+                    </div>
                 </div>
             </div>
-            <!-- END CONTENT -->
         </div>
-        <!-- END SIDEBAR & CONTENT -->
+        <!-- END CONTENT -->
     </div>
+    <!-- END SIDEBAR & CONTENT -->
+</div>
 </div>
