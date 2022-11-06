@@ -56,6 +56,18 @@ app.get('/product', (req, res) => {
     })
 })
 
+// admin home
+app.get('/admin', (req, res) => {
+    let query = `select *
+                 from product`
+    connect.query(query, async (err, listProducts) => {
+        if (err) console.log(err)
+        else {
+            await showRender('./product/adminHome', listProducts, res)
+        }
+    })
+})
+
 app.get('/product/men', (req, res) => {
     showGender('male', res)
 })

@@ -1,8 +1,8 @@
 <div class="main">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="/">Home</a></li>
-            <li><a href="/product">Product</a></li>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="">Update</a></li>
             <li class="active"><%= products[0].product_name %></li>
         </ul>
         <!-- BEGIN SIDEBAR & CONTENT -->
@@ -104,15 +104,8 @@
                         </ul>
                     </li>
                 </ul>
-                <div class="sidebar-products clearfix">
-                    <h2>Best sellers</h2>
-                    <% for( item of bestProduct){ %>
-                        <div class="item">
-                            <a href="/product/details/<%= item.product_id %>"><img src="<%= item.image %>" alt=""></a>
-                            <h3><a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a></h3>
-                            <div class="price">$<%= item.price %></div>
-                        </div>
-                    <% } %>
+                <div class="sidebar-products clearfix" style="text-align: center">
+                    <a href="/create" class="btn btn-default add2cart">Create New Product</a>
                 </div>
             </div>
             <!-- END SIDEBAR -->
