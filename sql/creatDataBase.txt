@@ -1,0 +1,87 @@
+create schema clothingWeb;
+use clothingWeb;
+create table account
+(
+    id       int primary key not null auto_increment,
+    username varchar(20)     not null,
+    password varchar(20)     not null
+);
+create table gender
+(
+    gender_id   int primary key not null auto_increment,
+    gender_name varchar(20)     not null
+);
+create table style
+(
+    style_id   int primary key not null auto_increment,
+    style_name varchar(20)     not null
+);
+create table branch
+(
+    branch_id   int primary key not null auto_increment,
+    branch_name varchar(20)     not null
+);
+create table product
+(
+    product_id   int primary key not null auto_increment,
+    product_name varchar(255)    not null,
+    gender_id    int,
+    style_id     int,
+    branch_id    int,
+    price        int             not null,
+    timeUpdate   date default (curdate()),
+    foreign key (gender_id) references gender (gender_id),
+    foreign key (style_id) references style (style_id),
+    foreign key (branch_id) references branch (branch_id),
+    image        text            not null,
+    description  text
+);
+create table productDetails
+(
+    product_id  int not null,
+    image       text,
+    description text,
+    foreign key (product_id) references product (product_id)
+
+);
+create table invoice
+(
+    order_id   int primary key not null auto_increment,
+    product_id int,
+    quantity   int,
+    account_id int,
+    time       date default (curdate()),
+    foreign key (product_id) references product (product_id),
+    foreign key (account_id) references account (id)
+);
+
+
+insert into gender(gender_name) value ('male');
+insert into gender(gender_name) value ('female');
+insert into style(style_name) value ('normal');
+insert into style(style_name) value ('sport');
+insert into branch (branch_name)
+values ('china');
+insert into branch (branch_name)
+values ('japan');
+insert into account(username, password)
+VALUES ('admin', '1');
+insert into account(username, password)
+VALUES ('1', '1');
+
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('ao nu', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('quan nu', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('ao nu', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('quan nam', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('ao nam', 1,  1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('quần nữ', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('đồ bảo hộ', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');
+insert into product(product_name, gender_id, style_id, branch_id, price, image, description)
+VALUES ('quan nu', 2, 1, 1, 23, 'https://resource.nhuahvt.com/0x0/tmp/hinh-anh-do-cong-so-1589905236.jpg', 'lanh lam em oi');

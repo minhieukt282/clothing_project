@@ -338,3 +338,35 @@ function updateImage(req, res, image, id) {
         else res.redirect(301, `/update/${id}`)
     })
 }
+
+app.get('/login', (req, res) => {
+    let query = `select *
+                 from product`
+    connect.query(query, async (err, listProducts) => {
+        if (err) console.log(err)
+        else {
+            await showRender('./login/login', listProducts, res)
+        }
+    })
+})
+
+app.post('/login', (req, res) => {
+    let query = `select *
+                 from account`
+    connect.query(query, (err, listAccount) => {
+        if (err) console.log(err)
+        else {
+            let url = '/login'
+            for (let i = 0; i < listAccount.length; i++) {
+                if (req.body.username === 'admin' && req.body.password === listAccount[0].password) {
+                    url = '/admin'
+                    break
+                } else if (req.body.username === listAccount[i].username && req.body.password === listAccount[i].password) {
+                    url = '/'
+                    break
+                }
+            }
+            res.redirect(301, url)
+        }
+    })
+})

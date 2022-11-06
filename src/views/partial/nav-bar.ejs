@@ -13,7 +13,8 @@
                     <li><a href="shop-account.html">My Account</a></li>
                     <li><a href="shop-wishlist.html">My Wishlist</a></li>
                     <li><a href="shop-checkout.html">Checkout</a></li>
-                    <li><a href="page-login.html">Log In</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/">Logout</a></li>
                 </ul>
             </div>
             <!-- END TOP BAR MENU -->
@@ -130,21 +131,21 @@
                             <div class="header-navigation-content">
                                 <div class="row">
                                     <% for( item of newProduct){ %>
-                                    <div class="col-md-3 col-sm-4 col-xs-6">
-                                        <div class="product-item">
-                                            <div class="pi-img-wrapper">
-                                                <a href="/product/details/<%= item.product_id %>"><img
-                                                            src="<%= item.image %>"
-                                                            class="img-responsive"
-                                                            alt="Berry Lace Dress"></a>
+                                        <div class="col-md-3 col-sm-4 col-xs-6">
+                                            <div class="product-item">
+                                                <div class="pi-img-wrapper">
+                                                    <a href="/product/details/<%= item.product_id %>"><img
+                                                                src="<%= item.image %>"
+                                                                class="img-responsive"
+                                                                alt="Berry Lace Dress"></a>
+                                                </div>
+                                                <h3>
+                                                    <a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a>
+                                                </h3>
+                                                <div class="pi-price">$<%= item.price %></div>
+                                                <a href="" class="btn btn-default add2cart">Add to cart</a>
                                             </div>
-                                            <h3>
-                                                <a href="/product/details/<%= item.product_id %>"><%= item.product_name %></a>
-                                            </h3>
-                                            <div class="pi-price">$<%= item.price %></div>
-                                            <a href="" class="btn btn-default add2cart">Add to cart</a>
                                         </div>
-                                    </div>
                                     <% } %>
                                 </div>
                             </div>
